@@ -17,7 +17,7 @@ namespace DataFetching
         
         private: 
             HTTPRequest request_;
-            void writeData() const;
+            void writeData();
             std::string getURL() const; 
             
     };

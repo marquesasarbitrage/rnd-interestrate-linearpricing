@@ -10,18 +10,18 @@ namespace DataFetching
         return "https://api.stlouisfed.org/fred/series/observations?series_id=SOFR&api_key="+key_+"&file_type=json";
     }
 
-    void StLouisFredSOFRFixing::writeData() const
+    void StLouisFredSOFRFixing::writeData() 
     {
+        request_.run();
+        nlohmann::json data = request_.getData();
         std::filesystem::create_directory("data");
         std::ofstream file("data/stlouisfred-sofr-fixing.csv");
         if (!file.is_open()) {
             std::cerr << "Error: could not open file." << std::endl;
         }
         file << "date,fixingRate,\n";
-        nlohmann::json data = request_.getData();
-
         for (const auto& obs : data["observations"]) {
-            file << obs["date"].get<std::string>() << "," << obs["value"].get<double>() << "," << "\n";
+            file << obs["date"].get<std::string>() << "," << obs["value"].get<std::string>() << "," << "\n";
         }
 
         file.close();
