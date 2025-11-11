@@ -1,0 +1,18 @@
+
+1) Write and test CoupoundInterestRate object : 
+- RateFixing object : startDate, endDate, annualizedFixingRate 
+- CoupoundInterestRate : set of RateFixing -> start dates are uniques AND next start date == this end date
+- Can only compound date from minimum to maximum date else NAN 
+
+2) Coupon Object 
+- Notional, fixed leg annualized value, floating boolean, startAccruedDate, endAccruedDate, paymentDate >= endAccruedDate
+- getUndiscountedValue(InterestRateModel) -> compute the value of a coupon at a given time (undiscounted)
+
+BEFORE OR EQUAL TO START ACCRUED 
+
+BETWEEN START AND END ACCRUED 
+
+AFTER ACCRUED 
+
+
+

@@ -16,4 +16,4 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(core-quant)
 
-
+set(PROJECT_IS_TOP_LEVEL ON)
